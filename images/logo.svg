@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <!-- ===== OUTER RING: blue top arc, green bottom arc ===== -->
+  <path d="M 110 170 A 170 170 0 0 1 390 170" fill="none" stroke="#1E5F9E" stroke-width="14" stroke-linecap="round"/>
+  <path d="M 110 330 A 170 170 0 0 1 390 330" fill="none" stroke="#7D9D3E" stroke-width="14" stroke-linecap="round"/>
+
+  <!-- ===== CENTRAL GLOBE: left blue, right green ===== -->
+  <!-- Blue left half (globe body + left leaf extension) -->
+  <path d="M 250 140
+           C 200 145, 160 170, 135 210
+           C 120 235, 115 265, 130 290
+           C 140 310, 150 325, 160 340
+           C 165 350, 160 370, 145 385
+           C 135 395, 130 400, 135 400
+           C 145 400, 170 390, 185 370
+           C 195 355, 200 340, 210 320
+           C 220 300, 235 290, 245 280
+           L 250 270
+           C 250 220, 250 170, 250 140 Z"
+        fill="#1E5F9E"/>
+
+  <!-- Green right half (globe body + right leaf extension) -->
+  <path d="M 250 140
+           C 300 145, 340 170, 365 210
+           C 380 235, 385 265, 370 290
+           C 360 310, 350 325, 340 340
+           C 335 350, 340 370, 355 385
+           C 365 395, 370 400, 365 400
+           C 355 400, 330 390, 315 370
+           C 305 355, 300 340, 290 320
+           C 280 300, 265 290, 255 280
+           L 250 270
+           C 250 220, 250 170, 250 140 Z"
+        fill="#7D9D3E"/>
+
+  <!-- ===== WHITE GRID LINES ON GLOBE ===== -->
+  <g stroke="#FFFFFF" stroke-width="2.5" fill="none">
+    <line x1="250" y1="155" x2="250" y2="265"/>
+    <path d="M 150 190 Q 250 205, 350 190"/>
+    <path d="M 135 225 Q 250 240, 365 225"/>
+    <path d="M 130 255 Q 250 270, 370 255"/>
+    <!-- Vertical curves -->
+    <path d="M 250 155 Q 190 190, 175 245"/>
+    <path d="M 250 155 Q 310 190, 325 245"/>
+  </g>
+
+  <!-- ===== WHITE SPROUT (negative space between leaf extensions) ===== -->
+  <g fill="#FFFFFF">
+    <path d="M 250 320 C 248 315, 247 305, 250 298 C 253 305, 252 315, 250 320 Z"/>
+    <path d="M 250 305 C 244 300, 236 296, 240 290 C 244 284, 250 293, 250 300 Z"/>
+    <path d="M 250 305 C 256 300, 264 296, 260 290 C 256 284, 250 293, 250 300 Z"/>
+  </g>
+
+  <!-- ===== FLOATING LEAVES ===== -->
+  <!-- Left leaf (blue) -->
+  <path d="M 148 170 C 140 162, 138 152, 144 148 C 150 144, 155 151, 152 165 Z" fill="#1E5F9E"/>
+  <!-- Right leaf (green) -->
+  <path d="M 352 170 C 360 162, 362 152, 356 148 C 350 144, 345 151, 348 165 Z" fill="#7D9D3E"/>
+  <!-- Top-right small leaf (green) -->
+  <path d="M 340 120 C 346 114, 348 106, 344 104 C 340 102, 336 108, 338 117 Z" fill="#7D9D3E"/>
+</svg>
