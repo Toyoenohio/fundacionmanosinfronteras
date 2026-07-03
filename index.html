@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manos Sin Fronteras — Manos Unidas por Venezuela</title>
+  <meta name="description" content="Fundación Manos Sin Fronteras — Uniendo voluntades, reconstruyendo hogares. Respuesta al terremoto del 24 de junio de 2026.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'verde':      '#1E3F2C',
+            'verde-oscuro':'#1A3323',
+            'verde-limon': '#8CB43C',
+            'verde-limon-claro': '#EAF0D9',
+            'azul-inst':   '#2C4A7C',
+            'crema':       '#F3F0E8',
+            'txt-princ':   '#1A1A1A',
+            'txt-sec':     '#6B6B6B',
+            'bordes':      '#D9D5CC',
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .scroll-hidden::-webkit-scrollbar { display: none; }
+    .counter { font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+<body class="bg-crema text-txt-princ font-sans antialiased overflow-x-hidden">
+
+<!-- ====== NAVIGATION ====== -->
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 h-20 bg-white border-b border-bordes transition-all duration-300">
+  <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
+    <a href="#hero"><img src="images/logo_fundacion.jpeg" alt="Manos Sin Fronteras" class="h-12 md:h-14 w-auto object-contain"></a>
+    <nav class="hidden lg:flex items-center gap-8">
+      <a href="#quienes" class="text-sm font-medium text-verde hover:text-verde-limon transition-colors">Quiénes Somos</a>
+      <a href="#emergencia" class="text-sm font-medium text-verde hover:text-verde-limon transition-colors">La Emergencia</a>
+      <a href="#pilares" class="text-sm font-medium text-verde hover:text-verde-limon transition-colors">Pilares de Acción</a>
+      <a href="#transparencia" class="text-sm font-medium text-verde hover:text-verde-limon transition-colors">Transparencia</a>
+      <a href="#formulario" class="inline-flex items-center gap-2 px-6 py-3 bg-verde-limon text-white rounded-full font-semibold text-sm hover:scale-[1.03] transition-transform">Donar</a>
+    </nav>
+    <button id="menuBtn" class="lg:hidden p-2 text-verde" aria-label="Menú">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="fixed inset-0 z-[60] bg-crema transition-all duration-300 opacity-0 invisible lg:hidden">
+  <div class="max-w-[1280px] mx-auto px-4 h-full flex flex-col">
+    <div class="flex justify-end pt-6"><button id="closeMenu" class="p-2 text-verde" aria-label="Cerrar"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+    <nav class="flex-1 flex flex-col justify-center gap-6">
+      <a href="#quienes" class="text-2xl font-bold text-verde-oscuro menu-link">Quiénes Somos</a>
+      <a href="#emergencia" class="text-2xl font-bold text-verde-oscuro menu-link">La Emergencia</a>
+      <a href="#pilares" class="text-2xl font-bold text-verde-oscuro menu-link">Pilares de Acción</a>
+      <a href="#transparencia" class="text-2xl font-bold text-verde-oscuro menu-link">Transparencia</a>
+    </nav>
+    <div class="pb-10"><a href="#formulario" class="block w-full text-center py-4 bg-verde-limon text-white rounded-full font-bold text-lg menu-link">Donar Ahora</a></div>
+  </div>
+</div>
+
+<!-- ====== HERO ====== -->
+<section id="hero" class="relative min-h-[100dvh] flex flex-col pt-20">
+  <div class="relative h-[55vh] overflow-hidden">
+    <div id="parallaxBg" class="absolute inset-0 w-full h-[120%]">
+      <img src="images/hero-bg.jpg" alt="Voluntarios brindando ayuda humanitaria" class="w-full h-full object-cover">
+    </div>
+    <div class="absolute inset-0" style="background:linear-gradient(to bottom, rgba(30,63,44,0.6), rgba(30,63,44,0.85))"></div>
+    <div class="relative z-10 h-full flex flex-col items-center justify-center px-4 text-center">
+      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-[1px] bg-verde-limon text-verde-oscuro mb-4">EMERGENCIA — Terremoto 24 de Junio 2026</span>
+      <h1 class="text-4xl md:text-5xl lg:text-[64px] font-extrabold leading-[1.05] tracking-[-1.5px] text-white max-w-[700px]">Manos Unidas por Venezuela</h1>
+      <p class="text-lg text-white/80 mt-4 max-w-[600px]">Uniendo voluntades, reconstruyendo hogares</p>
+    </div>
+  </div>
+  <div class="flex-1 bg-crema flex items-center">
+    <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 md:py-16">
+      <div class="flex flex-col md:flex-row gap-6 md:gap-8 justify-center items-stretch">
+        <div class="bg-white rounded-2xl p-8 shadow-lg max-w-[480px] w-full flex flex-col">
+          <svg class="text-verde mb-4" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <h3 class="text-xl font-bold text-verde-oscuro mb-2">¿Cómo deseas ayudar?</h3>
+          <p class="text-txt-sec mb-6 flex-1">Tu aporte marca la diferencia en la reconstrucción de familias afectadas.</p>
+          <a href="#formulario" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-verde-limon text-white rounded-full font-semibold hover:scale-[1.03] transition-transform">Quiero Apoyar <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
+          <a href="#pilares" class="text-verde font-medium hover:underline mt-4 text-sm text-center">Ver más formas de ayudar →</a>
+        </div>
+        <div class="bg-white rounded-2xl p-8 shadow-lg max-w-[480px] w-full flex flex-col">
+          <svg class="text-azul-inst mb-4" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <h3 class="text-xl font-bold text-verde-oscuro mb-2">Donación segura</h3>
+          <p class="text-txt-sec mb-6 flex-1">Canales oficiales verificados para donaciones nacionales e internacionales.</p>
+          <a href="#formulario" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-azul-inst text-white rounded-full font-semibold hover:scale-[1.03] transition-transform"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Donar Ahora</a>
+          <p class="text-txt-sec text-sm mt-4 text-center">Cuentas bancarias verificadas</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== QUIENES SOMOS ====== -->
+<section id="quienes" class="py-16 md:py-20 lg:py-[120px] bg-crema">
+  <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-[55%_45%] gap-12 lg:gap-16 items-center">
+      <div>
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-[1px] border border-verde text-verde mb-6">FUNDACIÓN</span>
+        <h2 class="text-3xl md:text-4xl lg:text-[48px] font-bold leading-[1.1] tracking-[-1px] text-verde-oscuro mb-6">Quiénes Somos</h2>
+        <div class="space-y-4 max-w-[520px]">
+          <p class="text-txt-princ leading-relaxed">Somos una institución privada, sin fines de lucro, plural e independiente, constituida legalmente en el año 2015.</p>
+          <p class="text-txt-princ leading-relaxed">Nuestra misión es canalizar la solidaridad civil e internacional para brindar asistencia humanitaria de emergencia, rehabilitación, recuperación, apoyo psicosocial y reconstrucción comunitaria.</p>
+        </div>
+        <div class="mt-8 bg-[#EAF0D9] border-l-4 border-verde-limon rounded-lg p-6">
+          <p class="text-lg text-verde-oscuro italic">"Canalizar la solidaridad civil e internacional para brindar asistencia humanitaria de emergencia, rehabilitación, recuperación, apoyo psicosocial y reconstrucción comunitaria."</p>
+        </div>
+        <a href="#pilares" class="inline-flex items-center gap-1 text-verde font-medium hover:underline mt-8">Conoce nuestra labor <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+      <div class="relative">
+        <div class="rounded-2xl overflow-hidden aspect-[4/3]"><img src="images/quienes-somos.jpg" alt="Equipo de voluntarios" class="w-full h-full object-cover"></div>
+        <div class="absolute bottom-4 right-4 md:bottom-6 md:right-6 bg-white rounded-xl p-4 md:p-5 shadow-lg max-w-[280px]">
+          <p class="text-xs text-txt-sec uppercase tracking-wide mb-1">Junta Directiva</p>
+          <p class="text-sm font-medium text-verde-oscuro leading-snug">Elizabeth Martínez, María Alejandra Martínez, Yenkis Higuera y Elsa González</p>
+          <p class="text-xs text-txt-sec mt-1">Ad honorem</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== MONITOREO ====== -->
+<section id="emergencia" class="py-16 md:py-20 lg:py-[120px] bg-verde-oscuro relative overflow-hidden">
+  <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-16">
+      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-[1px] border border-white/30 text-white mb-6">MONITOREO EN TIEMPO REAL</span>
+      <h2 class="text-3xl md:text-4xl lg:text-[48px] font-bold leading-[1.1] tracking-[-1px] text-white mb-4">Monitoreo de la Emergencia</h2>
+      <p class="text-lg text-white/70 max-w-[600px] mx-auto">Datos oficiales del doble sismo del 24 de junio de 2026 en el oeste de Caracas.</p>
+    </div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+      <div class="text-center px-4 py-6"><svg class="text-verde-limon mx-auto mb-4" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span class="counter block text-3xl md:text-4xl font-extrabold text-verde-limon" data-target="1719">0</span><span class="text-sm text-white/70 uppercase tracking-[1px] mt-3 block">Personas fallecidas</span></div>
+      <div class="text-center px-4 py-6"><svg class="text-verde-limon mx-auto mb-4" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span class="counter block text-3xl md:text-4xl font-extrabold text-verde-limon" data-target="5034">0</span><span class="text-sm text-white/70 uppercase tracking-[1px] mt-3 block">Personas heridas</span></div>
+      <div class="text-center px-4 py-6"><svg class="text-verde-limon mx-auto mb-4" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="counter block text-3xl md:text-4xl font-extrabold text-verde-limon" data-target="15866">0</span><span class="text-sm text-white/70 uppercase tracking-[1px] mt-3 block">Familias damnificadas</span></div>
+      <div class="text-center px-4 py-6"><svg class="text-verde-limon mx-auto mb-4" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="9" y1="6" x2="15" y2="6"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="9" y1="14" x2="12" y2="14"/></svg><span class="counter block text-3xl md:text-4xl font-extrabold text-verde-limon" data-target="855">0</span><span class="text-sm text-white/70 uppercase tracking-[1px] mt-3 block">Edificaciones afectadas</span></div>
+    </div>
+    <p class="text-center text-white/50 text-sm italic mt-12">Fuente: Reportes oficiales de Protección Civil — Actualizado al 03 de julio de 2026</p>
+  </div>
+</section>
+
+<!-- ====== UBICACION ====== -->
+<section id="ubicacion" class="py-16 md:py-20 lg:py-[120px] bg-crema">
+  <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div class="rounded-2xl aspect-[4/3] bg-[#E8E5DE] border-2 border-dashed border-bordes flex flex-col items-center justify-center p-8 text-center">
+        <svg class="text-txt-sec mb-4" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <h3 class="text-xl font-bold text-txt-sec mb-2">Mapa Interactivo — Zona Oeste de Caracas</h3>
+        <p class="text-sm text-txt-sec max-w-[320px]">Se visualizarán las comunidades prioritarias atendidas por la fundación</p>
+        <div class="mt-4 px-4 py-2 bg-white/60 rounded-lg text-xs text-txt-sec">Google Maps Embed — Próximamente</div>
+      </div>
+      <div class="lg:pl-8">
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-[1px] border border-verde text-verde mb-6">ZONAS PRIORITARIAS</span>
+        <h2 class="text-3xl md:text-4xl lg:text-[48px] font-bold leading-[1.1] tracking-[-1px] text-verde-oscuro mb-6">Ubicación de la Acción</h2>
+        <p class="text-txt-princ leading-relaxed max-w-[440px]">El mapa interactivo muestra las comunidades prioritarias del oeste de Caracas atendidas por nuestra fundación en el marco de la emergencia.</p>
+        <div class="mt-8 space-y-0">
+          <div class="flex items-center gap-3 py-4"><svg class="text-verde-limon flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="font-medium text-verde-oscuro">Comunidades del oeste de Caracas</span></div>
+          <div class="h-px bg-verde-limon/20"></div>
+          <div class="flex items-center gap-3 py-4"><svg class="text-verde-limon flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="font-medium text-verde-oscuro">Zonas de mayor impacto sísmico</span></div>
+          <div class="h-px bg-verde-limon/20"></div>
+          <div class="flex items-center gap-3 py-4"><svg class="text-verde-limon flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="font-medium text-verde-oscuro">Áreas de distribución de ayuda</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PILARES ====== -->
+<section id="pilares" class="py-16 md:py-20 lg:py-[120px] bg-white">
+  <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-[1px] bg-verde-limon text-verde-oscuro mb-6">NUESTRO PLAN DE ACCIÓN</span>
+      <h2 class="text-3xl md:text-4xl lg:text-[48px] font-bold leading-[1.1] tracking-[-1px] text-verde-oscuro mb-4">Pilares de Respuesta</h2>
+      <p class="text-lg text-txt-sec max-w-[640px] mx-auto">Nuestro plan estratégico se divide en tres ejes de intervención para atender la emergencia de manera integral.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Pilar 1 -->
+      <div class="group bg-white border border-bordes rounded-2xl p-8 md:p-10 hover:shadow-xl hover:border-verde hover:-translate-y-1 transition-all duration-300">
+        <div class="w-[72px] h-[72px] rounded-full bg-verde-limon-claro flex items-center justify-center mb-6">
+          <svg class="text-verde" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <span class="text-xs font-semibold tracking-[2px] text-verde-limon">01</span>
+        <h3 class="text-xl font-bold text-verde-oscuro mt-2 mb-3">Abastece y Protege</h3>
+        <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-verde-limon-claro text-verde-oscuro mb-4">CORTO PLAZO</span>
+        <p class="text-txt-sec leading-relaxed mb-6">Operación de ollas comunitarias y comedores itinerantes, junto con la entrega de Kits de Supervivencia y Kits de Dignidad para la higiene de mujeres y niños.</p>
+      </div>
+      <!-- Pilar 2 -->
+      <div class="group bg-white border border-bordes rounded-2xl p-8 md:p-10 hover:shadow-xl hover:border-verde hover:-translate-y-1 transition-all duration-300">
+        <div class="w-[72px] h-[72px] rounded-full bg-[#D9E5F0] flex items-center justify-center mb-6">
+          <svg class="text-azul-inst" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-3.04Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-3.04Z"/></svg>
+        </div>
+        <span class="text-xs font-semibold tracking-[2px] text-verde-limon">02</span>
+        <h3 class="text-xl font-bold text-verde-oscuro mt-2 mb-3">Mentes Sanas, Corazones Fuertes</h3>
+        <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-[#D9E5F0] text-azul-inst mb-4">MEDIANO PLAZO</span>
+        <p class="text-txt-sec leading-relaxed mb-6">Despliegue de Primeros Auxilios Psicológicos (PAP) dirigidos por profesionales y estudiantes de psicología para contener traumas colectivos.</p>
+      </div>
+      <!-- Pilar 3 -->
+      <div class="group bg-white border border-bordes rounded-2xl p-8 md:p-10 hover:shadow-xl hover:border-verde hover:-translate-y-1 transition-all duration-300">
+        <div class="w-[72px] h-[72px] rounded-full bg-[#F0E8D0] flex items-center justify-center mb-6">
+          <svg class="text-[#8B7355]" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v8"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m8 22 4-10 4 10"/></svg>
+        </div>
+        <span class="text-xs font-semibold tracking-[2px] text-verde-limon">03</span>
+        <h3 class="text-xl font-bold text-verde-oscuro mt-2 mb-3">Capital Semilla</h3>
+        <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-[#F0E8D0] text-[#8B7355] mb-4">MEDIANO PLAZO</span>
+        <p class="text-txt-sec leading-relaxed mb-6">Entrega de Kits de Reactivación (máquinas de coser, herramientas de construcción, licuadoras industriales) para que carpinteros, costureras y mecánicos recuperen de forma autónoma su economía.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FORMULARIO ====== -->
+<section id="formulario" class="py-16 md:py-20 lg:py-[120px] bg-crema">
+  <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-[1px] border border-verde text-verde mb-6">SUMÁNDOTE A LA CAUSA</span>
+      <h2 class="text-3xl md:text-4xl lg:text-[48px] font-bold leading-[1.1] tracking-[-1px] text-verde-oscuro mb-4">Formulario de Captación</h2>
+      <p class="text-lg text-txt-sec max-w-[600px] mx-auto">Regístrate para apoyar nuestra labor. Puedes donar suministros, ofrecerte como voluntario o contribuir con fondos.</p>
+    </div>
+    <div class="max-w-[960px] mx-auto">
+      <div class="flex rounded-t-xl overflow-hidden">
+        <button class="tab-btn flex-1 py-4 px-4 md:px-6 text-sm font-medium bg-verde text-white" data-tab="supplies">Donación de Suministros</button>
+        <button class="tab-btn flex-1 py-4 px-4 md:px-6 text-sm font-medium bg-crema text-txt-sec border border-bordes" data-tab="volunteer">Voluntariado</button>
+        <button class="tab-btn flex-1 py-4 px-4 md:px-6 text-sm font-medium bg-crema text-txt-sec border border-bordes" data-tab="funds">Fondos Económicos</button>
+      </div>
+      <div class="bg-white rounded-b-2xl border border-t-0 border-bordes p-8 md:p-12">
+        <!-- Tab Supplies -->
+        <div id="tab-supplies" class="tab-content">
+          <h3 class="text-xl font-bold text-verde-oscuro mb-2">Donación de Suministros</h3>
+          <p class="text-txt-sec mb-6">Lista de requerimientos urgentes para las comunidades afectadas:</p>
+          <div class="grid sm:grid-cols-2 gap-4 mb-8">
+            <div class="flex items-center gap-3 bg-verde-limon-claro/30 px-4 py-3 rounded-lg"><span class="w-2 h-2 rounded-full bg-verde-limon flex-shrink-0"></span><span class="text-verde-oscuro font-medium text-sm">Alimentos no perecederos</span></div>
+            <div class="flex items-center gap-3 bg-verde-limon-claro/30 px-4 py-3 rounded-lg"><span class="w-2 h-2 rounded-full bg-verde-limon flex-shrink-0"></span><span class="text-verde-oscuro font-medium text-sm">Agua potable</span></div>
+            <div class="flex items-center gap-3 bg-verde-limon-claro/30 px-4 py-3 rounded-lg"><span class="w-2 h-2 rounded-full bg-verde-limon flex-shrink-0"></span><span class="text-verde-oscuro font-medium text-sm">Pastillas potabilizadoras</span></div>
+            <div class="flex items-center gap-3 bg-verde-limon-claro/30 px-4 py-3 rounded-lg"><span class="w-2 h-2 rounded-full bg-verde-limon flex-shrink-0"></span><span class="text-verde-oscuro font-medium text-sm">Herramientas básicas de trabajo</span></div>
+            <div class="flex items-center gap-3 bg-verde-limon-claro/30 px-4 py-3 rounded-lg"><span class="w-2 h-2 rounded-full bg-verde-limon flex-shrink-0"></span><span class="text-verde-oscuro font-medium text-sm">Artículos de higiene personal</span></div>
+            <div class="flex items-center gap-3 bg-verde-limon-claro/30 px-4 py-3 rounded-lg"><span class="w-2 h-2 rounded-full bg-verde-limon flex-shrink-0"></span><span class="text-verde-oscuro font-medium text-sm">Medicamentos de primeros auxilios</span></div>
+          </div>
+          <a href="#" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-verde-limon text-white rounded-full font-semibold hover:scale-[1.03] transition-transform">Contactar para entrega <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+        <!-- Tab Volunteer -->
+        <div id="tab-volunteer" class="tab-content hidden">
+          <h3 class="text-xl font-bold text-verde-oscuro mb-2">Voluntariado</h3>
+          <p class="text-txt-sec mb-6">Si eres psicólogo o estudiante de semestres avanzados, únete a nuestro eje de salud mental.</p>
+          <form id="volunteerForm" class="space-y-5">
+            <div><label class="block text-sm font-semibold text-verde-oscuro mb-1">Nombre completo</label><input type="text" required class="w-full bg-transparent border-b-2 border-verde-limon px-0 py-3 text-txt-princ focus:outline-none focus:border-verde transition-colors"></div>
+            <div><label class="block text-sm font-semibold text-verde-oscuro mb-1">Correo electrónico</label><input type="email" required class="w-full bg-transparent border-b-2 border-verde-limon px-0 py-3 text-txt-princ focus:outline-none focus:border-verde transition-colors"></div>
+            <div><label class="block text-sm font-semibold text-verde-oscuro mb-1">Teléfono de contacto</label><input type="tel" required class="w-full bg-transparent border-b-2 border-verde-limon px-0 py-3 text-txt-princ focus:outline-none focus:border-verde transition-colors"></div>
+            <div><label class="block text-sm font-semibold text-verde-oscuro mb-1">Profesión / Semestre que cursas</label><input type="text" required class="w-full bg-transparent border-b-2 border-verde-limon px-0 py-3 text-txt-princ focus:outline-none focus:border-verde transition-colors"></div>
+            <div><label class="block text-sm font-semibold text-verde-oscuro mb-1">Mensaje o comentario</label><textarea rows="4" class="w-full bg-transparent border-b-2 border-verde-limon px-0 py-3 text-txt-princ focus:outline-none focus:border-verde transition-colors resize-none"></textarea></div>
+            <button type="submit" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-verde-limon text-white rounded-full font-semibold hover:scale-[1.03] transition-transform">Registrarme como voluntario <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
+          </form>
+        </div>
+        <!-- Tab Funds -->
+        <div id="tab-funds" class="tab-content hidden">
+          <h3 class="text-xl font-bold text-verde-oscuro mb-2">Fondos Económicos</h3>
+          <p class="text-txt-sec mb-8">Contribuye a través de nuestros canales oficiales. Todas las donaciones se rigen bajo las directrices contables de nuestro estatuto legal para garantizar transparencia internacional.</p>
+          <div class="space-y-5 mb-8">
+            <div class="bg-white border border-bordes rounded-xl p-6"><p class="font-semibold text-verde-oscuro">Banco de Venezuela</p><p class="text-azul-inst font-bold text-xl mt-1">0102-XXXX-XXXX-XXXX-XXXX</p><p class="text-sm text-txt-sec mt-1">Cuenta corriente</p></div>
+            <div class="bg-white border border-bordes rounded-xl p-6"><p class="font-semibold text-verde-oscuro">Banco Mercantil</p><p class="text-azul-inst font-bold text-xl mt-1">0105-XXXX-XXXX-XXXX-XXXX</p><p class="text-sm text-txt-sec mt-1">Cuenta de ahorro</p></div>
+            <div class="bg-white border border-bordes rounded-xl p-6"><p class="font-semibold text-verde-oscuro">Bancaribe</p><p class="text-azul-inst font-bold text-xl mt-1">0114-XXXX-XXXX-XXXX-XXXX</p><p class="text-sm text-txt-sec mt-1">Cuenta corriente</p></div>
+          </div>
+          <p class="text-xs text-txt-sec italic mb-6">* Los datos bancarios reales serán proporcionados por la fundación.</p>
+          <a href="#" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-azul-inst text-white rounded-full font-semibold hover:scale-[1.03] transition-transform">Confirmar mi donación <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== TRANSPARENCIA ====== -->
+<section id="transparencia" class="py-16 md:py-20 lg:py-[120px] bg-white">
+  <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-[720px] mx-auto text-center">
+      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-[1px] bg-azul-inst text-white mb-6">TRANSPARENCIA</span>
+      <h2 class="text-3xl md:text-4xl lg:text-[48px] font-bold leading-[1.1] tracking-[-1px] text-verde-oscuro mb-6">Transparencia</h2>
+      <p class="text-lg text-txt-sec">Todas las donaciones son gestionadas bajo estrictas directrices contables de nuestro estatuto legal. Trabajamos con auditorías externas y publicamos informes periódicos de gestión.</p>
+    </div>
+    <div class="flex flex-col md:flex-row justify-center gap-8 md:gap-12 mt-12">
+      <div class="flex flex-col items-center text-center px-6 py-8">
+        <div class="w-14 h-14 rounded-full bg-[#D9E5F0] flex items-center justify-center mb-4"><svg class="text-azul-inst" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <span class="font-semibold text-verde-oscuro max-w-[200px]">Auditorías externas anuales</span>
+      </div>
+      <div class="flex flex-col items-center text-center px-6 py-8">
+        <div class="w-14 h-14 rounded-full bg-[#EAF0D9] flex items-center justify-center mb-4"><svg class="text-verde" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+        <span class="font-semibold text-verde-oscuro max-w-[200px]">Reportes públicos trimestrales</span>
+      </div>
+      <div class="flex flex-col items-center text-center px-6 py-8">
+        <div class="w-14 h-14 rounded-full bg-[#F0E8D0] flex items-center justify-center mb-4"><svg class="text-[#8B7355]" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <span class="font-semibold text-verde-oscuro max-w-[200px]">Directrices del estatuto legal</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="bg-verde-oscuro pt-16 md:pt-20 pb-8 md:pb-10">
+  <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+      <div>
+        <img src="images/logo_fundacion.jpeg" alt="Manos Sin Fronteras" class="h-12 w-auto object-contain brightness-0 invert">
+        <p class="text-sm text-white/60 mt-4">Uniendo mundos, sembrando esperanza</p>
+      </div>
+      <div>
+        <p class="text-xs text-white/50 uppercase tracking-[1px] font-semibold mb-4">Navegación</p>
+        <nav class="flex flex-col gap-3">
+          <a href="#quienes" class="text-white/80 hover:text-white text-sm transition-colors">Quiénes Somos</a>
+          <a href="#emergencia" class="text-white/80 hover:text-white text-sm transition-colors">La Emergencia</a>
+          <a href="#pilares" class="text-white/80 hover:text-white text-sm transition-colors">Pilares de Acción</a>
+          <a href="#transparencia" class="text-white/80 hover:text-white text-sm transition-colors">Transparencia</a>
+          <a href="#formulario" class="text-white/80 hover:text-white text-sm transition-colors">Donar</a>
+        </nav>
+      </div>
+      <div>
+        <p class="text-xs text-white/50 uppercase tracking-[1px] font-semibold mb-4">Contacto</p>
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 text-white/80 text-sm"><svg class="text-verde-limon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>+58 XXX-XXXXXXX</span></div>
+          <div class="flex items-center gap-2 text-white/80 text-sm"><svg class="text-verde-limon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@manossinfronteras.org</span></div>
+        </div>
+        <div class="flex items-center gap-4 mt-4">
+          <a href="#" class="text-white/60 hover:text-white transition-colors"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" class="text-white/60 hover:text-white transition-colors"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" class="text-white/60 hover:text-white transition-colors"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <p class="text-xs text-white/50 uppercase tracking-[1px] font-semibold mb-4">Emergencia</p>
+        <p class="text-white/80 font-medium text-sm">Manos Unidas por Venezuela</p>
+        <p class="text-white/50 text-xs mt-1">Campaña activa de respuesta al terremoto</p>
+        <a href="#formulario" class="inline-block mt-4 px-6 py-3 bg-verde-limon text-verde-oscuro rounded-full font-semibold text-sm hover:scale-[1.03] transition-transform">Donar Ahora</a>
+      </div>
+    </div>
+    <div class="mt-16 pt-6 border-t border-white/15 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-xs text-white/40">&copy; 2026 Fundación Manos Sin Fronteras. Todos los derechos reservados.</p>
+      <p class="text-xs text-white/40">Diseñado con ♥ para Venezuela</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ====== SCRIPTS ====== -->
+<script>
+(function() {
+  // Mobile menu
+  var menu = document.getElementById('mobileMenu');
+  document.getElementById('menuBtn').addEventListener('click', function(){ menu.classList.remove('opacity-0','invisible'); });
+  document.getElementById('closeMenu').addEventListener('click', function(){ menu.classList.add('opacity-0','invisible'); });
+  document.querySelectorAll('.menu-link').forEach(function(l){ l.addEventListener('click', function(){ menu.classList.add('opacity-0','invisible'); }); });
+
+  // Sticky nav bg
+  window.addEventListener('scroll', function(){
+    var nav = document.getElementById('navbar');
+    nav.style.background = window.scrollY > 100 ? 'rgba(255,255,255,0.92)' : 'white';
+    nav.style.backdropFilter = window.scrollY > 100 ? 'blur(12px)' : 'none';
+    nav.style.WebkitBackdropFilter = window.scrollY > 100 ? 'blur(12px)' : 'none';
+  });
+
+  // Parallax hero bg
+  window.addEventListener('scroll', function(){
+    var bg = document.getElementById('parallaxBg');
+    if (bg) bg.style.transform = 'translateY(' + (window.scrollY * 0.15) + 'px)';
+  });
+
+  // Counter animation
+  var countersAnimated = false;
+  function animateCounters() {
+    if (countersAnimated) return;
+    var el = document.getElementById('emergencia');
+    if (!el) return;
+    var rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      countersAnimated = true;
+      document.querySelectorAll('.counter').forEach(function(c){
+        var target = parseInt(c.getAttribute('data-target'));
+        var duration = 2500;
+        var start = performance.now();
+        function update(now) {
+          var elapsed = now - start;
+          var progress = Math.min(elapsed / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          c.textContent = Math.floor(eased * target).toLocaleString('es-VE');
+          if (progress < 1) requestAnimationFrame(update);
+          else c.textContent = target.toLocaleString('es-VE');
+        }
+        requestAnimationFrame(update);
+      });
+    }
+  }
+  window.addEventListener('scroll', animateCounters);
+  animateCounters();
+
+  // Tab system
+  document.querySelectorAll('.tab-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var tab = this.getAttribute('data-tab');
+      document.querySelectorAll('.tab-btn').forEach(function(b){
+        b.className = b.className.replace('bg-verde text-white', 'bg-crema text-txt-sec border border-bordes');
+      });
+      this.className = this.className.replace('bg-crema text-txt-sec border border-bordes', 'bg-verde text-white');
+      document.querySelectorAll('.tab-content').forEach(function(c){ c.classList.add('hidden'); });
+      document.getElementById('tab-' + tab).classList.remove('hidden');
+    });
+  });
+
+  // Volunteer form
+  document.getElementById('volunteerForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    this.innerHTML = '<div class="bg-verde-limon-claro/40 border border-verde-limon rounded-xl p-8 text-center"><p class="text-verde-oscuro font-semibold text-lg">¡Gracias por tu interés!</p><p class="text-txt-sec mt-2">Pronto estaremos en contacto contigo.</p></div>';
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var href = this.getAttribute('href');
+      if (href === '#') return;
+      e.preventDefault();
+      var target = document.querySelector(href);
+      if (target) {
+        var offset = 80;
+        var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
