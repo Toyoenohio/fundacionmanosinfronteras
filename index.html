@@ -367,37 +367,17 @@
         <!-- Tab Funds -->
         <div id="tab-funds" class="tab-content hidden">
           <h3 class="text-xl font-bold text-verde-oscuro mb-2">Fondos Económicos</h3>
-          <p class="text-txt-sec mb-6">Contribuye a través de nuestros canales oficiales.</p>
-
-          <!-- Sub-tabs -->
-          <div class="flex rounded-lg overflow-hidden mb-6 border border-bordes">
-            <button class="funds-tab-btn flex-1 py-3 px-4 text-sm font-medium bg-verde text-white" data-funds="paypal">PayPal</button>
-            <button class="funds-tab-btn flex-1 py-3 px-4 text-sm font-medium bg-white text-txt-sec" data-funds="binance">Binance</button>
-            <button class="funds-tab-btn flex-1 py-3 px-4 text-sm font-medium bg-white text-txt-sec" data-funds="pagomovil">Pago Móvil</button>
-          </div>
+          <p class="text-txt-sec mb-2">Contribuye a través de nuestros canales oficiales.</p>
 
           <!-- PayPal -->
-          <div id="funds-paypal" class="funds-content">
-            <div id="paypal-container-UBTUS8EYL6G6J" class="flex justify-center"></div>
-            <p class="text-xs text-txt-sec text-center mt-4">Donación segura procesada por PayPal</p>
-          </div>
+          <div id="paypal-container-UBTUS8EYL6G6J" class="flex justify-center my-4"></div>
+          <p class="text-xs text-txt-sec text-center mb-6">Donación segura procesada por PayPal</p>
 
-          <!-- Binance -->
-          <div id="funds-binance" class="funds-content hidden">
-            <div class="bg-[#EAF0D9] border border-verde-limon/30 rounded-xl p-8 text-center">
-              <svg class="text-verde-limon mx-auto mb-4" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-              <p class="text-verde-oscuro font-semibold text-lg">Pronto habilitaremos este medio</p>
-              <p class="text-txt-sec mt-2">Estamos configurando Binance Pay para recibir donaciones en criptomonedas.</p>
-            </div>
-          </div>
-
-          <!-- Pago Móvil -->
-          <div id="funds-pagomovil" class="funds-content hidden">
-            <div class="bg-[#D9E5F0] border border-azul-inst/30 rounded-xl p-8 text-center">
-              <svg class="text-azul-inst mx-auto mb-4" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-              <p class="text-azul-inst font-semibold text-lg">Pronto habilitaremos este medio</p>
-              <p class="text-txt-sec mt-2">Estamos configurando Pago Móvil para recibir donaciones en bolívares.</p>
-            </div>
+          <!-- Próximamente -->
+          <div class="flex items-center justify-center gap-4 text-xs text-txt-sec border-t border-bordes pt-5">
+            <span class="inline-flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-bordes"></span> Binance</span>
+            <span class="inline-flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-bordes"></span> Pago Móvil</span>
+            <span class="text-txt-sec/50">— Próximamente</span>
           </div>
         </div>
       </div>
@@ -553,6 +533,7 @@
   animateCounters();
 
   // Tab system
+  var paypalLoaded = false;
   document.querySelectorAll('.tab-btn').forEach(function(btn){
     btn.addEventListener('click', function(){
       var tab = this.getAttribute('data-tab');
@@ -562,23 +543,9 @@
       this.className = this.className.replace('bg-crema text-txt-sec border border-bordes', 'bg-verde text-white');
       document.querySelectorAll('.tab-content').forEach(function(c){ c.classList.add('hidden'); });
       document.getElementById('tab-' + tab).classList.remove('hidden');
-    });
-  });
 
-  // Funds sub-tabs
-  var paypalLoaded = false;
-  document.querySelectorAll('.funds-tab-btn').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var funds = this.getAttribute('data-funds');
-      document.querySelectorAll('.funds-tab-btn').forEach(function(b){
-        b.className = b.className.replace('bg-verde text-white', 'bg-white text-txt-sec');
-      });
-      this.className = this.className.replace('bg-white text-txt-sec', 'bg-verde text-white');
-      document.querySelectorAll('.funds-content').forEach(function(c){ c.classList.add('hidden'); });
-      document.getElementById('funds-' + funds).classList.remove('hidden');
-
-      // Load PayPal SDK on first click
-      if (funds === 'paypal' && !paypalLoaded) {
+      // Load PayPal SDK on first visit to funds tab
+      if (tab === 'funds' && !paypalLoaded) {
         paypalLoaded = true;
         var script = document.createElement('script');
         script.src = 'https://www.paypal.com/sdk/js?client-id=BAAiZkNmaGwoynf8noVkjIQTu0DSqX7WjQd41hqUM98aMLlzTnm15IhGp_Bghsshv2RLcy9KHootPAjcx8&components=hosted-buttons&disable-funding=venmo&currency=USD';
