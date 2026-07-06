@@ -378,13 +378,7 @@
 
           <!-- PayPal -->
           <div id="funds-paypal" class="funds-content">
-            <script src="https://www.paypal.com/sdk/js?client-id=BAAiZkNmaGwoynf8noVkjIQTu0DSqX7WjQd41hqUM98aMLlzTnm15IhGp_Bghsshv2RLcy9KHootPAjcx8&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
             <div id="paypal-container-UBTUS8EYL6G6J" class="flex justify-center"></div>
-            <script>
-              paypal.HostedButtons({
-                hostedButtonId: "UBTUS8EYL6G6J",
-              }).render("#paypal-container-UBTUS8EYL6G6J")
-            </script>
             <p class="text-xs text-txt-sec text-center mt-4">Donación segura procesada por PayPal</p>
           </div>
 
@@ -572,6 +566,7 @@
   });
 
   // Funds sub-tabs
+  var paypalLoaded = false;
   document.querySelectorAll('.funds-tab-btn').forEach(function(btn){
     btn.addEventListener('click', function(){
       var funds = this.getAttribute('data-funds');
@@ -581,6 +576,19 @@
       this.className = this.className.replace('bg-white text-txt-sec', 'bg-verde text-white');
       document.querySelectorAll('.funds-content').forEach(function(c){ c.classList.add('hidden'); });
       document.getElementById('funds-' + funds).classList.remove('hidden');
+
+      // Load PayPal SDK on first click
+      if (funds === 'paypal' && !paypalLoaded) {
+        paypalLoaded = true;
+        var script = document.createElement('script');
+        script.src = 'https://www.paypal.com/sdk/js?client-id=BAAiZkNmaGwoynf8noVkjIQTu0DSqX7WjQd41hqUM98aMLlzTnm15IhGp_Bghsshv2RLcy9KHootPAjcx8&components=hosted-buttons&disable-funding=venmo&currency=USD';
+        script.onload = function(){
+          paypal.HostedButtons({
+            hostedButtonId: 'UBTUS8EYL6G6J',
+          }).render('#paypal-container-UBTUS8EYL6G6J');
+        };
+        document.head.appendChild(script);
+      }
     });
   });
 
